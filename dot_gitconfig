@@ -1,0 +1,40 @@
+[user]
+	name = Omar Mekky
+	email = omar@payrails.com
+	signingkey = 410E398C78648A32
+[github]
+	user = cousine
+[core]
+	excludesfile = /Users/cousine/.gitignore_global
+[color]
+	ui = true
+[mergetool "fugitive"]
+	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+[mergetool "nvimdiff4"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[merge]
+    tool = nvimdiff4
+    # if not using a tool name with builtin support, must supply mergetool cmd
+    # as below
+[push]
+	default = simple
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
+[diff "sopsdiffer"]
+	textconv = sops -d
+[commit]
+	verbose = false
+	gpgsign = true
+[pull]
+	rebase = false
+	ff = only
+[init]
+	defaultBranch = master
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
